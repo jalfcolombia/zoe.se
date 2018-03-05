@@ -64,7 +64,7 @@ class i18n
    */
   private function LoadyamlCache(): array
   {
-    if ($this->session->has('i18n') === true)
+    if ($this->session->has('i18n') === true and $this->session->get('i18n') === $this->config->getI18n())
     {
       $yaml = $this->session->get('i18n');
     }
