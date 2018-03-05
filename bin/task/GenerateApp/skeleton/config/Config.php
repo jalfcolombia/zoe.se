@@ -17,6 +17,6 @@ use $app\\config\\MyConfig;
 \$config->setHash('HASH')
   ->setI18n('en')
   ->setPath('$output')
-  ->setUrl('http://localhost/$app/public/$app.php');
+  ->setUrl('http://localhost/$app/public/');
 
 BLOCK;

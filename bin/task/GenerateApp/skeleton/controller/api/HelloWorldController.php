@@ -3,7 +3,7 @@
 $skeleton = <<<BLOCK
 <?php
 
-use $app\\ControllerExtends;
+use $app\\config\\ControllerExtends;
 use ZoeSE\\Request;
 
 class HelloWorld extends ControllerExtends

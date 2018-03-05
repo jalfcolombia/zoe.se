@@ -40,7 +40,7 @@ class i18n
    * @param array|string $args
    * @return string
    */
-  public function __(string $text, $args): string
+  public function __(string $text, $args = null): string
   {
     $yaml = $this->LoadyamlCache();
     if (is_string($args) === true)
@@ -50,6 +50,10 @@ class i18n
     elseif (is_array($args) === true)
     {
       $answer = vsprintf($yaml[$text], $args);
+    }
+    else
+    {
+      $answer = $yaml[$text];
     }
     return $answer;
   }

@@ -113,9 +113,9 @@ class GenerateApp implements ITask
     fwrite($file, $skeleton);
     fclose($file);
 
-    // template.imprimirJSON.php
-    require __DIR__ . DIRECTORY_SEPARATOR . 'GenerateApp' . DIRECTORY_SEPARATOR . 'skeleton' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'template.imprimirJSON.php';
-    $file = fopen($this->output . 'view/template.imprimirJSON.php', 'w');
+    // template.printJSON.php
+    require __DIR__ . DIRECTORY_SEPARATOR . 'GenerateApp' . DIRECTORY_SEPARATOR . 'skeleton' . DIRECTORY_SEPARATOR . 'view' . DIRECTORY_SEPARATOR . 'template.printJSON.php';
+    $file = fopen($this->output . 'view/template.printJSON.php', 'w');
     fwrite($file, $skeleton);
     fclose($file);
   }
