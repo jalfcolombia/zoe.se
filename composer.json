@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "ZoeSE\\": "src/Zoe/",
+      "ZoeSE\\": "src/ZoeSE/",
       "ZoeSE\\Interfaces\\": "src/ZoeSE/Interfaces/"
     }
   }
