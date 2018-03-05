@@ -25,6 +25,15 @@
   "autoload": {
     "psr-4": {
       "ZoeSE\\": "src/ZoeSE/",
+      "ZoeSE\\Config\\": "src/ZoeSE/",
+      "ZoeSE\\Controller\\": "src/ZoeSE/",
+      "ZoeSE\\FrontController\\": "src/ZoeSE/",
+      "ZoeSE\\Request\\": "src/ZoeSE/",
+      "ZoeSE\\Route\\": "src/ZoeSE/",
+      "ZoeSE\\Session\\": "src/ZoeSE/",
+      "ZoeSE\\Validate\\": "src/ZoeSE/",
+      "ZoeSE\\View\\": "src/ZoeSE/",
+      "ZoeSE\\i18n\\": "src/ZoeSE/",
       "ZoeSE\\Interfaces\\": "src/ZoeSE/Interfaces/"
     }
   }
