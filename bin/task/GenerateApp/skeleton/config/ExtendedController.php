@@ -10,7 +10,7 @@ use ZoeSE\\Controller;
 use ZoeSE\\Session;
 use ZoeSE\\i18n;
 
-abstract class ControllerExtends extends Controller
+abstract class ExtendedController extends Controller
 {
 
   public function __construct(MyConfig \$config, Session \$session, i18n \$i18n)

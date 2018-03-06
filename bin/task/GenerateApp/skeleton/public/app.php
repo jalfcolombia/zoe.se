@@ -11,15 +11,15 @@ error_reporting(E_ALL);
 
 require '../vendor/autoload.php';
 require '../config/MyConfig.php';
-require '../config/ControllerExtends.php';
-require '../config/FrontControllerExtends.php';
+require '../config/ExtendedController.php';
+require '../config/FrontExtendedController.php';
 require '../config/Config.php';
 
-use $app\\config\\FrontControllerExtends;
+use $app\\config\\FrontExtendedController;
 
 try
 {
-  \$app = new FrontControllerExtends(\$config);
+  \$app = new FrontExtendedController(\$config);
   \$app->run();
 }
 catch (\Exception \$exc)

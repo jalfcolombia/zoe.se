@@ -58,9 +58,9 @@ class GenerateApp implements ITask
     fwrite($file, $skeleton);
     fclose($file);
 
-    // ControllerExtends.php
-    require __DIR__ . DIRECTORY_SEPARATOR . 'GenerateApp' . DIRECTORY_SEPARATOR . 'skeleton' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'ControllerExtends.php';
-    $file = fopen($this->output . 'config/ControllerExtends.php', 'w');
+    // ExtendedController.php
+    require __DIR__ . DIRECTORY_SEPARATOR . 'GenerateApp' . DIRECTORY_SEPARATOR . 'skeleton' . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'ExtendedController.php';
+    $file = fopen($this->output . 'config/ExtendedController.php', 'w');
     fwrite($file, $skeleton);
     fclose($file);
 

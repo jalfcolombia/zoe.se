@@ -3,10 +3,10 @@
 $skeleton = <<<BLOCK
 <?php
 
-use $app\\config\\ControllerExtends;
+use $app\\config\\ExtendedController;
 use ZoeSE\\Request;
 
-class HelloWorld extends ControllerExtends
+class HelloWorld extends ExtendedController
 {
 
   public function main(Request \$request)
