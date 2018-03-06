@@ -18,6 +18,15 @@ abstract class ControllerExtends extends Controller
     parent::__construct(\$config, \$session, \$i18n);
   }
 
+  /**
+   * 
+   * @return MyConfig
+   */
+  public function getConfig(): MyConfig
+  {
+    return parent::getConfig();
+  }
+
 }
 
 BLOCK;
