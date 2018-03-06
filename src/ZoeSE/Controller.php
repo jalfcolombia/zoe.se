@@ -2,9 +2,9 @@
 
 namespace ZoeSE;
 
-use ZoeSE\Config;
-use ZoeSE\Session;
-use ZoeSE\i18n;
+use ZoeSE\Config,
+    ZoeSE\Session,
+    ZoeSE\i18n;
 
 /**
  * @author Julián Andrés Lasso Figueroa <jalasso69@misena.edu.co>
@@ -14,6 +14,7 @@ abstract class Controller
 
   /**
    * Variable con objeto de configuración
+   * 
    * @access private
    * @var Config
    */
@@ -21,6 +22,7 @@ abstract class Controller
 
   /**
    * Array con las variables que pasan del controlador a la vista
+   * 
    * @access private
    * @var array
    */
@@ -28,6 +30,7 @@ abstract class Controller
 
   /**
    * Nombre de la vista a usar por el controlador
+   * 
    * @access private
    * @var string
    */
@@ -35,13 +38,15 @@ abstract class Controller
 
   /**
    * Objeto para el manejo de sesiones
+   * 
    * @access private
    * @var Session
    */
   private $session;
 
   /**
-   *
+   * Objeto para el manejo del idioma del sistema
+   * 
    * @access private
    * @var i18n
    */
@@ -52,6 +57,12 @@ abstract class Controller
    */
   abstract function main(Request $request);
 
+  /**
+   * 
+   * @param Config $config Variable con objeto de configuración
+   * @param Session $session Objeto para el manejo de sesiones
+   * @param i18n $i18n Objeto para el manejo del idioma del sistema
+   */
   public function __construct(Config $config, Session $session, i18n $i18n)
   {
     $this->config  = $config;
@@ -61,6 +72,7 @@ abstract class Controller
   }
 
   /**
+   * Obtiene la configuración del sistema
    * 
    * @return Config
    */
@@ -69,69 +81,89 @@ abstract class Controller
     return $this->config;
   }
 
-  public function getParams()
+  /**
+   * Devuelve un array con los parámetro que se pasarán a la visa
+   * 
+   * @return array
+   */
+  public function getParams(): array
   {
     return $this->params;
   }
 
-  public function getView()
+  /**
+   * Obtiene el nombre de la visa definida
+   * 
+   * @return string
+   */
+  public function getView(): string
   {
     return $this->view;
   }
 
   /**
+   * Obtiene el objeto para manejar las sesiones
    * 
    * @return Session
    */
-  public function getSession()
+  public function getSession(): Session
   {
     return $this->session;
   }
 
   /**
+   * Obtiene el idioma configurado para el sistema
    * 
    * @return i18n
    */
-  public function i18n()
+  public function i18n(): string
   {
     return $this->i18n;
   }
 
   /**
+   * Establece un parámetro hacia la vista
    * 
-   * @param string $param
-   * @param mixed $value
+   * @param string $param Nombre del parámetro
+   * @param mixed $value Valor del parámetro
    * @return $this
    */
-  public function setParam(string $param, $value)
+  public function setParam(string $param, $value): Controller
   {
     $this->params[$param] = $value;
     return $this;
   }
 
   /**
+   * Establece la vista a utilizar
    * 
-   * @param string $view
+   * @param string $view Nombre de la vista
    * @return $this
    */
-  public function setView(string $view)
+  public function setView(string $view): Controller
   {
     $this->view = $view;
     return $this;
   }
 
   /**
-   * Setea el código de respuesta HTTP para el navegador
-   * @param int $code
+   * Establece el código de respuesta HTTP para el navegador
+   * 
+   * @param int $code Código HTTP
    * @return $this
    */
-  public function setResponseCode(int $code)
+  public function setResponseCode(int $code): Controller
   {
     http_response_code($code);
     return $this;
   }
 
-  public function getResponseCode()
+  /**
+   * Obtiene el código de respuesta HTTP para el cliente
+   * 
+   * @return int
+   */
+  public function getResponseCode(): int
   {
     return http_response_code();
   }

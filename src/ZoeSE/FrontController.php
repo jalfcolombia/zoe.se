@@ -1,14 +1,25 @@
 <?php
 
+/**
+ * This file is part of the ZoeSE package.
+ *
+ * (c) Julian Lasso <jalasso69@misena.edu.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace ZoeSE;
 
-use ZoeSE\Request;
-use ZoeSE\Session;
-use ZoeSE\View;
-use ZoeSE\Route;
-use ZoeSE\Config;
+use ZoeSE\Request,
+    ZoeSE\Session,
+    ZoeSE\View,
+    ZoeSE\Route,
+    ZoeSE\Config;
 
 /**
+ * Controlador frontal
+ * 
  * @author Julián Andrés Lasso Figueroa <jalasso69@misena.edu.co>
  */
 class FrontController
@@ -16,17 +27,20 @@ class FrontController
 
   /**
    * Variable con la configuración del sistema
+   * 
    * @var Config
    */
   private $config;
 
   /**
    * Variable con en nombre del controlador solicitado
+   * 
    * @var controller
    */
   private $controller;
 
   /**
+   * Variable con el nombre de la carpeta (módulo) ubicada en la carpeta controller
    * 
    * @var string 
    */
@@ -34,6 +48,7 @@ class FrontController
 
   /**
    * Variable que guarda los parametros pasados por la URL de forma amigable
+   * 
    * @var array
    */
   private $paramsURL;
@@ -51,6 +66,7 @@ class FrontController
   }
 
   /**
+   * Obtiene el objeto de configuración del sistema
    * 
    * @return Config
    */
@@ -60,14 +76,20 @@ class FrontController
   }
 
   /**
+   * Establece el objecto de configuración del sistema
    * 
-   * @param Config $config
+   * @param Config $config Objeto de configuración del sistema
    */
   protected function setConfig(Config $config)
   {
     $this->config = $config;
   }
 
+  /**
+   * Método para correr toda la plataforma
+   * 
+   * @throws \Exception
+   */
   public function run()
   {
     try
@@ -80,7 +102,7 @@ class FrontController
       $i18n       = new i18n($this->getConfig(), $session);
       $controller = new $this->controller($this->getConfig(), $session, $i18n);
       $controller->main($request);
-      $view       = new View($this->getConfig(), $controller->getView(), $controller->getParams());
+      $view       = new View($this->getConfig()->getPath(), $controller->getView(), $controller->getParams());
       $view->render();
     }
     catch (\Exception $exc)
@@ -89,6 +111,10 @@ class FrontController
     }
   }
 
+  /**
+   * Método para procesar la dirección y extraer nombre de módulo y controlador
+   * a utlizar.
+   */
   private function friendURL()
   {
     $route  = new Route();
@@ -127,6 +153,9 @@ class FrontController
 //    require $this->getConfig()->getPath() . 'vendor/ZoeMVC/core/i18n.php';
 //  }
 
+  /**
+   * Método para cargar el controlador solicitado por el usuario
+   */
   private function loadController()
   {
     if ($this->folder !== null)
@@ -140,6 +169,7 @@ class FrontController
   }
 
   /**
+   * Método para iniciar el objeto que maneja las peticiones del sistema
    * 
    * @return Request
    */

@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of the ZoeSE package.
+ *
+ * (c) Julian Lasso <jalasso69@misena.edu.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace ZoeSE;
 
 /**
@@ -56,9 +65,9 @@ class Validate
   const CUSTOM = 8;
 
   /**
-   * Variable contenedora de la configuración para realizar las validaciones
+   * Arreglo que contiene la configuración para realizar las validaciones
    * 
-   * @var string
+   * @var array
    */
   private $form;
 
@@ -69,7 +78,11 @@ class Validate
    */
   private $error = array();
 
-  public function __construct($form)
+  /**
+   * 
+   * @param string $form Arreglo de configuración de validaciones
+   */
+  public function __construct(string $form)
   {
     $this->form = $form;
   }
@@ -79,16 +92,16 @@ class Validate
    *
    * @return array
    */
-  public function getError()
+  public function getError(): array
   {
     return $this->error;
   }
 
   /**
-   * Método para setear un error a un input determinado
+   * Método para establecer un error a un campo (input) determinado
    * 
-   * @param string $input
-   * @param string $message
+   * @param string $input Nombre del campo
+   * @param string $message Mensaje de error
    */
   public function setError(string $input, string $message)
   {
@@ -96,7 +109,9 @@ class Validate
   }
 
   /**
-   * Método principal para realizar la validación, el cual devolverá VERDADERO si la validación pasó totalmente o de lo contrario, devolverá FALSO
+   * Método principal para realizar la validación, el cual devolverá
+   * VERDADERO si la validación pasó totalmente o de lo contrario,
+   * devolverá FALSO
    *
    * @return bool
    */

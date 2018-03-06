@@ -1,9 +1,18 @@
 <?php
 
+/**
+ * This file is part of the ZoeSE package.
+ *
+ * (c) Julian Lasso <jalasso69@misena.edu.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace ZoeSE;
 
-use ZoeSE\Config;
-use ZoeSE\Session;
+use ZoeSE\Config,
+    ZoeSE\Session;
 
 /**
  * @author Julián Andrés Lasso Figueroa <jalasso69@misena.edu.co>
@@ -12,21 +21,23 @@ class i18n
 {
 
   /**
-   *
+   * Objeto con la configuración del sistema
+   * 
    * @var Config
    */
   private $config;
 
   /**
-   *
+   * Objeto para manejar la sesión del sistema
+   * 
    * @var Session
    */
   private $session;
 
   /**
    * 
-   * @param Config $config
-   * @param Session $session
+   * @param Config $config Objeto con la configuración del sistema
+   * @param Session $session Objeto para manejar la sesión del sistema
    */
   public function __construct(Config $config, Session $session)
   {
@@ -35,6 +46,8 @@ class i18n
   }
 
   /**
+   * Método para indicar el mensaje a usar del diccionario del idioma
+   * establecido para el sistema
    * 
    * @param string $text
    * @param array|string $args
@@ -59,6 +72,8 @@ class i18n
   }
 
   /**
+   * Método para cargar el diccionario ya compilado o compila y cachea el
+   * diccionario establecido para el sistema.
    * 
    * @return array
    */

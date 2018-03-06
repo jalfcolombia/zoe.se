@@ -1,9 +1,19 @@
 <?php
 
+/**
+ * This file is part of the ZoeSE package.
+ *
+ * (c) Julian Lasso <jalasso69@misena.edu.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace ZoeSE;
 
 /**
  * Clase para manejar la ruta de una URL amigable
+ * 
  * @link http://www.weblantropia.com/2016/07/28/enrutamiento-urls-htaccess-php/ Dirección de origen de la clase
  */
 class Route
@@ -13,10 +23,14 @@ class Route
   private $uri;
   private $base_url;
   private $routes;
-  private $route;
   private $params;
   private $get_params;
 
+  /**
+   * 
+   * @param bool $get_params Establece si se van a tomar los parámetros
+   * provenientes por el método GET adicionales.
+   */
   function __construct($get_params = false)
   {
     $this->get_params = $get_params;
