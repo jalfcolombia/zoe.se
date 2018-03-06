@@ -85,7 +85,7 @@ class FrontController
     }
     catch (\Exception $exc)
     {
-      throw new Exception($exc->getMessage(), $exc->getCode(), $exc->getPrevious());
+      throw new \Exception($exc->getMessage(), $exc->getCode(), $exc->getPrevious());
     }
   }
 
