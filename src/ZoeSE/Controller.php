@@ -112,11 +112,11 @@ abstract class Controller
   }
 
   /**
-   * Obtiene el idioma configurado para el sistema
+   * Obtiene la instancia de la clase i18n
    * 
    * @return i18n
    */
-  public function i18n(): string
+  public function i18n(): i18n
   {
     return $this->i18n;
   }
