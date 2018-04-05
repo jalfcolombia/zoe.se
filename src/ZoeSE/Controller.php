@@ -61,7 +61,7 @@ abstract class Controller
   }
 
   /**
-   * 
+   *
    * @return Config
    */
   public function getConfig()
@@ -80,7 +80,7 @@ abstract class Controller
   }
 
   /**
-   * 
+   *
    * @return Session
    */
   public function getSession()
@@ -89,7 +89,7 @@ abstract class Controller
   }
 
   /**
-   * 
+   *
    * @return i18n
    */
   public function i18n()
@@ -98,7 +98,7 @@ abstract class Controller
   }
 
   /**
-   * 
+   *
    * @param string $param
    * @param mixed $value
    * @return $this
@@ -110,7 +110,7 @@ abstract class Controller
   }
 
   /**
-   * 
+   *
    * @param string $view
    * @return $this
    */
@@ -135,5 +135,23 @@ abstract class Controller
   {
     return http_response_code();
   }
+
+  /**
+   * Set header to send http request
+   * @param string $name
+   * @param string $value
+   * @return void
+   */
+  public function setHeader(string $name, string $value) :void {
+     header("{$name}: {$value}");
+    }
+   /**
+    * Get header ready to sent http request
+    *
+    * @return array
+    */
+   public function getHeader() :array{
+      return headers_list();
+    }
 
 }
