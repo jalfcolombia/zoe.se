@@ -75,12 +75,12 @@ class i18n
    */
   private function LoadYamlCache(): array
   {
-    if ($this->session->has('i18n') === true) {
-      $yaml = $this->session->get('i18n');
+    if ($this->session->Has('i18n') === true) {
+      $yaml = $this->session->Get('i18n');
     }
     else {
-      $yaml = yaml_parse_file($this->config->getPath() . 'i18n/' . $this->config->getI18n() . '.yml');
-      $this->session->set('i18n', $yaml);
+      $yaml = yaml_parse_file($this->config->GetPath() . 'i18n/' . $this->config->GetI18n() . '.yml');
+      $this->session->Set('i18n', $yaml);
     }
     return $yaml;
   }

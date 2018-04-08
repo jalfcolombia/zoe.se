@@ -26,6 +26,6 @@ interface IValidator
    * @param array $params
    * @return bool VERDADERO si cumple con la validación, FALSO si no cumple con la validación.
    */
-  public function validate(string $value, array $params = array());
+  public function Validate(string $value, array $params = array());
 
 }

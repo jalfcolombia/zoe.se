@@ -66,7 +66,7 @@ abstract class Controller
   /**
    * Metodo principal abstracto a implementar en los controladores del sistemas
    */
-  abstract public function main(Request $request);
+  abstract public function Main(Request $request);
 
   /**
    * Constructor de la clase Controller.
@@ -88,7 +88,7 @@ abstract class Controller
    * 
    * @return Config
    */
-  public function getConfig()
+  public function GetConfig()
   {
     return $this->config;
   }
@@ -98,7 +98,7 @@ abstract class Controller
    * 
    * @return array
    */
-  public function getParams()
+  public function GetParams()
   {
     return $this->params;
   }
@@ -108,7 +108,7 @@ abstract class Controller
    * 
    * @return string
    */
-  public function getView()
+  public function GetView()
   {
     return $this->view;
   }
@@ -118,7 +118,7 @@ abstract class Controller
    * 
    * @return Session
    */
-  public function getSession()
+  public function GetSession()
   {
     return $this->session;
   }
@@ -140,7 +140,7 @@ abstract class Controller
    * @param mixed $value
    * @return $this
    */
-  public function setParam(string $param, $value)
+  public function SetParam(string $param, $value)
   {
     $this->params[$param] = $value;
     return $this;
@@ -152,7 +152,7 @@ abstract class Controller
    * @param string $view
    * @return $this
    */
-  public function setView(string $view)
+  public function SetView(string $view)
   {
     $this->view = $view;
     return $this;
@@ -164,7 +164,7 @@ abstract class Controller
    * @param int $code
    * @return $this
    */
-  public function setResponseCode(int $code)
+  public function SetResponseCode(int $code)
   {
     http_response_code($code);
     return $this;
@@ -175,7 +175,7 @@ abstract class Controller
    * 
    * @return int
    */
-  public function getResponseCode()
+  public function GetResponseCode()
   {
     return http_response_code();
   }
@@ -187,7 +187,7 @@ abstract class Controller
    * @param string $value Valor del parámetro
    * @return void
    */
-  public function setHeader(string $name, string $value): void
+  public function SetHeader(string $name, string $value): void
   {
     header("{$name}: {$value}");
   }
@@ -197,7 +197,7 @@ abstract class Controller
    *
    * @return array
    */
-  public function getHeader(): array
+  public function GetHeader(): array
   {
     return headers_list();
   }

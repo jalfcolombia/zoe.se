@@ -70,7 +70,7 @@ class FrontController
    * 
    * @return Config
    */
-  protected function getConfig(): Config
+  protected function GetConfig(): Config
   {
     return $this->config;
   }
@@ -80,7 +80,7 @@ class FrontController
    * 
    * @param Config $config
    */
-  protected function setConfig(Config $config)
+  protected function SetConfig(Config $config)
   {
     $this->config = $config;
   }
@@ -90,18 +90,18 @@ class FrontController
    * 
    * @throws Exception
    */
-  public function run()
+  public function Run()
   {
     try {
-      $this->friendURL();
-      $this->loadController();
-      $request    = $this->loadRequest();
+      $this->FriendURL();
+      $this->LoadController();
+      $request    = $this->LoadRequest();
       $session    = new Session();
-      $i18n       = new i18n($this->getConfig(), $session);
-      $controller = new $this->controller($this->getConfig(), $session, $i18n);
-      $controller->main($request);
-      $view       = new View($this->getConfig(), $controller->getView(), $controller->getParams());
-      $view->render();
+      $i18n       = new i18n($this->GetConfig(), $session);
+      $controller = new $this->controller($this->GetConfig(), $session, $i18n);
+      $controller->Main($request);
+      $view       = new View($this->GetConfig(), $controller->GetView(), $controller->GetParams());
+      $view->Render();
     }
     catch (\Exception $exc) {
       throw new Exception($exc->getMessage(), $exc->getCode(), $exc->getPrevious());
@@ -111,14 +111,14 @@ class FrontController
   /**
    * Método para tratar las direcciones amigables.
    */
-  private function friendURL()
+  private function FriendURL()
   {
     $route  = new Route();
-    $routes = $route->getRoutes();
+    $routes = $route->GetRoutes();
     if (isset($routes[2]) === false) {
       $this->controller = 'Index';
     }
-    elseif (isset($routes[2]) === true and isset($routes[3]) === true and is_dir($this->getConfig()->getPath() . 'controller/' . $routes[2]) === true) {
+    elseif (isset($routes[2]) === true and isset($routes[3]) === true and is_dir($this->GetConfig()->GetPath() . 'controller/' . $routes[2]) === true) {
       $this->folder     = $routes[2];
       $this->controller = str_replace(' ', '', ucwords(str_replace('_', ' ', $routes[3])));
       unset($routes[3]);
@@ -135,13 +135,13 @@ class FrontController
   /**
    * Método para cargar el controlador solicitado.
    */
-  private function loadController()
+  private function LoadController()
   {
     if ($this->folder !== null) {
-      require $this->getConfig()->getPath() . 'controller/' . $this->folder . '/' . $this->controller . 'Controller.php';
+      require $this->GetConfig()->GetPath() . 'controller/' . $this->folder . '/' . $this->controller . 'Controller.php';
     }
     else {
-      require $this->getConfig()->getPath() . 'controller/' . $this->controller . 'Controller.php';
+      require $this->GetConfig()->GetPath() . 'controller/' . $this->controller . 'Controller.php';
     }
   }
 
@@ -150,7 +150,7 @@ class FrontController
    * 
    * @return Request
    */
-  private function loadRequest(): Request
+  private function LoadRequest(): Request
   {
     $getTMP = (is_array(filter_input_array(INPUT_GET)) === true) ? filter_input_array(INPUT_GET) : array();
     $get    = array_merge($this->paramsURL, $getTMP);

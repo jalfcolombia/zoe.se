@@ -84,28 +84,29 @@ class Validate
   }
 
   /**
-   * Método para obtener el array de errores
+   * Obtiene el arreglo de errores
    *
    * @return array
    */
-  public function getError()
+  public function GetError()
   {
     return $this->error;
   }
 
   /**
-   * Método para setear un error a un input determinado
+   * Establece un error a un input determinado
    * 
    * @param string $input
    * @param string $message
    */
-  public function setError(string $input, string $message)
+  public function SetError(string $input, string $message)
   {
     $this->error[$input]['message'] = $message;
   }
 
   /**
-   * Método principal para realizar la validación, el cual devolverá VERDADERO si la validación pasó totalmente o de lo contrario, devolverá FALSO
+   * Método principal para realizar la validación, el cual devolverá<br>
+   * VERDADERO si la validación pasó totalmente o de lo contrario, devolverá FALSO
    *
    * @return bool
    */
@@ -210,7 +211,7 @@ class Validate
               }
             }
             $class = new $validations[$x]['class']();
-            if ($class->validate($validations['value'], (isset($validations[$x]['params'])) ? $validations[$x]['params'] : array()) === false)
+            if ($class->Validate($validations['value'], (isset($validations[$x]['params'])) ? $validations[$x]['params'] : array()) === false)
             {
               $flag = false;
               $flagCnt++;
@@ -219,7 +220,7 @@ class Validate
         }
         if (!$flag)
         {
-          $this->setError($input, $validations[$x]['message']);
+          $this->SetError($input, $validations[$x]['message']);
           break;
         }
       }

@@ -207,7 +207,7 @@ class Config
    * @param string $path
    * @return $this
    */
-  public function setPath(string $path)
+  public function SetPath(string $path)
   {
     $this->path = $path;
     return $this;
@@ -219,7 +219,7 @@ class Config
    * @param string $driver
    * @return $this
    */
-  public function setDriver(string $driver)
+  public function SetDriver(string $driver)
   {
     $this->driver = $driver;
     return $this;
@@ -231,7 +231,7 @@ class Config
    * @param string $host
    * @return $this
    */
-  public function setHost(string $host)
+  public function SetHost(string $host)
   {
     $this->host = $host;
     return $this;
@@ -243,7 +243,7 @@ class Config
    * @param int $port
    * @return $this
    */
-  public function setPort(int $port)
+  public function SetPort(int $port)
   {
     $this->port = $port;
     return $this;
@@ -255,7 +255,7 @@ class Config
    * @param string $dbname
    * @return $this
    */
-  public function setDbName(string $dbname)
+  public function SetDbName(string $dbname)
   {
     $this->dbname = $dbname;
     return $this;
@@ -267,7 +267,7 @@ class Config
    * @param string $user
    * @return $this
    */
-  public function setUser(string $user)
+  public function SetUser(string $user)
   {
     $this->user = $user;
     return $this;
@@ -279,7 +279,7 @@ class Config
    * @param string $password
    * @return $this
    */
-  public function setPassword(string $password)
+  public function SetPassword(string $password)
   {
     $this->password = $password;
     return $this;
@@ -291,7 +291,7 @@ class Config
    * @param string $hash
    * @return $this
    */
-  public function setHash(string $hash)
+  public function SetHash(string $hash)
   {
     $this->hash = $hash;
     return $this;
@@ -303,7 +303,7 @@ class Config
    * @param string $url
    * @return $this
    */
-  public function setUrl(string $url)
+  public function SetUrl(string $url)
   {
     $this->url = $url;
     return $this;
@@ -315,7 +315,7 @@ class Config
    * @param string $i18n
    * @return $this
    */
-  public function setI18n(string $i18n)
+  public function SetI18n(string $i18n)
   {
     $this->i18n = $i18n;
     return $this;

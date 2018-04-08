@@ -87,7 +87,7 @@ class Request
    * @param string $variable Nombre de la variable
    * @return string | null Valor de la variable o NULL
    */
-  public function getPut(string $variable)
+  public function GetPut(string $variable)
   {
     return isset($this->put[$variable]) ? htmlspecialchars($this->put[$variable]) : null;
   }
@@ -98,7 +98,7 @@ class Request
    * @param string $variable Nombre de la variable
    * @return bool VERDADERO o FALSO si existe o no el valor indicado.
    */
-  public function hasPut(string $variable): bool
+  public function HasPut(string $variable): bool
   {
     return isset($this->put[$variable]);
   }
@@ -109,7 +109,7 @@ class Request
    * @param string $variable Nombre de la variable
    * @return string | null Valor de la variable o NULL
    */
-  public function getDelete(string $variable)
+  public function GetDelete(string $variable)
   {
     return isset($this->delete[$variable]) ? htmlspecialchars($this->delete[$variable]) : null;
   }
@@ -120,7 +120,7 @@ class Request
    * @param string $variable Nombre de la variable
    * @return bool VERDADERO o FALSO si existe o no el valor indicado.
    */
-  public function hasDelete(string $variable): bool
+  public function HasDelete(string $variable): bool
   {
     return isset($this->delete[$variable]);
   }
@@ -131,7 +131,7 @@ class Request
    * @param string $variable Nombre de la variable
    * @return string | null Valor de la variable o NULL
    */
-  public function getQuery(string $variable)
+  public function GetQuery(string $variable)
   {
     return isset($this->get[$variable]) ? htmlspecialchars($this->get[$variable]) : null;
   }
@@ -142,7 +142,7 @@ class Request
    * @param string $variable Nombre de la variable
    * @return bool VERDADERO o FALSO si existe o no el valor indicado.
    */
-  public function hasQuery(string $variable): bool
+  public function HasQuery(string $variable): bool
   {
     return isset($this->get[$variable]);
   }
@@ -153,7 +153,7 @@ class Request
    * @param string $variable Nombre de la variable
    * @return string | null Valor de la variable o NULL
    */
-  public function getParam(string $variable)
+  public function GetParam(string $variable)
   {
     return isset($this->post[$variable]) ? htmlspecialchars($this->post[$variable]) : null;
   }
@@ -164,7 +164,7 @@ class Request
    * @param string $variable Nombre de la variable
    * @return bool VERDADERO o FALSO si existe o no el valor indicado.
    */
-  public function hasParam(string $variable): bool
+  public function HasParam(string $variable): bool
   {
     return isset($this->post[$variable]);
   }
@@ -175,7 +175,7 @@ class Request
    * @param string $cookie Nombre de la cookie
    * @return array Arreglo con los detalles de la cookie indicada.
    */
-  public function getCookie(string $cookie): array
+  public function GetCookie(string $cookie): array
   {
     return $this->cookie[$cookie];
   }
@@ -186,7 +186,7 @@ class Request
    * @param string $cookie Nombre de la cookie
    * @return bool VERDADERO o FALSO si existe o no la cookie indicado.
    */
-  public function hasCookie(string $cookie): bool
+  public function HasCookie(string $cookie): bool
   {
     return isset($this->cookie[$cookie]);
   }
@@ -197,7 +197,7 @@ class Request
    * @param string $file Nombre de la variable que identifica el archivo en el servidor
    * @return array Arreglo con los datos del archivo indicado
    */
-  public function getFile(string $file): array
+  public function GetFile(string $file): array
   {
     return $this->files[$file];
   }
@@ -208,7 +208,7 @@ class Request
    * @param string $file Nombre del archivo
    * @return bool VERDADERO o FALSO si existe o no la archivo indicado.
    */
-  public function hasFile(string $file): bool
+  public function HasFile(string $file): bool
   {
     return isset($this->files[$file]);
   }

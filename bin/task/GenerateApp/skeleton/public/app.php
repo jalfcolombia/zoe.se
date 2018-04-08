@@ -19,7 +19,7 @@ use $app\\config\\FrontControllerExtends;
 try
 {
   \$app = new FrontControllerExtends(\$config);
-  \$app->run();
+  \$app->Run();
 }
 catch (\Exception \$exc)
 {

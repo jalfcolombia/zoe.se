@@ -73,12 +73,12 @@ class Route
    * 
    * @return array
    */
-  public function getRoutes(): array
+  public function GetRoutes(): array
   {
-    $this->base_url = $this->getCurrentUri();
+    $this->base_url = $this->GetCurrentUri();
     $this->routes   = explode('/', $this->base_url);
 
-    $this->getParams(); //invocamos el nuevo método
+    $this->GetParams(); //invocamos el nuevo método
     return $this->routes;
   }
 
@@ -87,14 +87,14 @@ class Route
    * 
    * @return srting Cadena con el dirección amigable
    */
-  private function getCurrentUri()
+  private function GetCurrentUri()
   {
     $this->basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
     $this->uri      = substr($_SERVER['REQUEST_URI'], strlen($this->basepath));
 
     if ($this->get_params)
     {
-      $this->getParams();
+      $this->GetParams();
     }
     elseif (strstr($this->uri, '?'))
     {
@@ -108,7 +108,7 @@ class Route
   /**
    * Obtiene las variables que entran por el método GET
    */
-  private function getParams(): void
+  private function GetParams(): void
   {
     if (strstr($this->uri, '?'))
     {

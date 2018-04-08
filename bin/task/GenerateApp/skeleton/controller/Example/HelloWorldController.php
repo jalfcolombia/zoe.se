@@ -9,10 +9,10 @@ use ZoeSE\\Request;
 class HelloWorld extends ControllerExtends
 {
 
-  public function main(Request \$request)
+  public function Main(Request \$request)
   {
-    \$this->setParam('name', \$this->i18n()->__('hi', 'World'));
-    \$this->setView('HelloWorld');
+    \$this->SetParam('name', \$this->i18n()->__('hi', 'World'));
+    \$this->SetView('HelloWorld');
   }
 
 }

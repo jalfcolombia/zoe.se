@@ -9,11 +9,11 @@ use ZoeSE\\Request;
 class HelloWorld extends ControllerExtends
 {
 
-  public function main(Request \$request)
+  public function Main(Request \$request)
   {
-    \$this->setParam('answer', array('msg' => \$this->i18n()->__('HelloWorld')));
-    \$this->setResponseCode(200);
-    \$this->setView('printJSON');
+    \$this->SetParam('answer', array('msg' => \$this->i18n()->__('HelloWorld')));
+    \$this->SetResponseCode(200);
+    \$this->SetView('printJSON');
   }
 
 }

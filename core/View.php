@@ -56,18 +56,18 @@ class View
     $this->config = $config;
   }
 
-  public function render()
+  public function Render()
   {
     if (count($this->params) > 0) {
       extract($this->params);
     }
 
     if (strpos($this->view, '/') === false) {
-      require $this->config->getPath() . 'view/template.' . $this->view . '.php';
+      require $this->config->GetPath() . 'view/template.' . $this->view . '.php';
     }
     else {
       $this->view = str_replace('/', '/template.', $this->view);
-      require $this->config->getPath() . 'view/' . $this->view . '.php';
+      require $this->config->GetPath() . 'view/' . $this->view . '.php';
     }
   }
 

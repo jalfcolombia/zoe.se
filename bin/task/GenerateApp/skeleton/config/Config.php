@@ -7,16 +7,16 @@ use $app\\config\\MyConfig;
 
 \$config = new MyConfig();
 
-\$config->setDrive('DRIVER')
-  ->setHost('HOST')
-  ->setPort(PORT)
-  ->setUser('USER')
-  ->setPassword('PASSWORD')
-  ->setDbname('DATABASE');
+\$config->SetDrive('DRIVER')
+  ->SetHost('HOST')
+  ->SetPort(PORT)
+  ->SetUser('USER')
+  ->SetPassword('PASSWORD')
+  ->SetDbname('DATABASE');
 
-\$config->setHash('HASH')
-  ->setI18n('en')
-  ->setPath('$output')
-  ->setUrl('http://localhost/$app/public/$app.php');
+\$config->SetHash('HASH')
+  ->SetI18n('en')
+  ->SetPath('$output')
+  ->SetUrl('http://localhost/$app/public/$app.php');
 
 BLOCK;
