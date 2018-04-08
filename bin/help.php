@@ -1,11 +1,16 @@
 <?php
 
-// NogalSE generate:/home/julian/NetBeansProjects/NogalORM/database.yml output:/home/julian/NetBeansProjects/NogalORM/output/
 $help = <<<HELP
 
-El proyecto Zoe (Student Edition) implementa el patrón de desarrollo MVC en PHP7 para los aprendices del SENA de forma básica y también para cualquier otra persona que desee hacer uso de esta librería bajo licencia MIT.
+The Zoe (Student Edition) project implements the MVC development pattern in PHP7 for SENA apprentices in a basic way and also for anyone else who wants to make use of this library under MIT license.
   
-Listado de comandos
+The way to use the ZoeSE command is as follows:
+  
+  ./vendor/zoe.se/bin/ZoeSE GenerateApp:[NAME YOUR APP] output:[DIRECTORY PATH TARGET]
+  
+Example:
+  
+  ./vendor/zoe.se/bin/ZoeSE GenerateApp:MyApp output:/var/www/html/MyApp/
 
 HELP;
 
