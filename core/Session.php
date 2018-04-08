@@ -8,11 +8,6 @@ namespace ZoeSE;
 class Session
 {
 
-  public function __construct()
-  {
-    
-  }
-
   /**
    * 
    * @return Session

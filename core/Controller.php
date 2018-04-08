@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of the ZoeSE package.
+ *
+ * (c) Julian Lasso <jalasso69@misena.edu.co>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace ZoeSE;
 
 use ZoeSE\Config;
@@ -7,6 +16,8 @@ use ZoeSE\Session;
 use ZoeSE\i18n;
 
 /**
+ * Clase para los controladores del sistema
+ * 
  * @author Julián Andrés Lasso Figueroa <jalasso69@misena.edu.co>
  */
 abstract class Controller
@@ -14,6 +25,7 @@ abstract class Controller
 
   /**
    * Variable con objeto de configuración
+   * 
    * @access private
    * @var Config
    */
@@ -21,6 +33,7 @@ abstract class Controller
 
   /**
    * Array con las variables que pasan del controlador a la vista
+   * 
    * @access private
    * @var array
    */
@@ -28,6 +41,7 @@ abstract class Controller
 
   /**
    * Nombre de la vista a usar por el controlador
+   * 
    * @access private
    * @var string
    */
@@ -35,13 +49,15 @@ abstract class Controller
 
   /**
    * Objeto para el manejo de sesiones
+   * 
    * @access private
    * @var Session
    */
   private $session;
 
   /**
-   *
+   * Objeto para manejar el idioma del sistema.
+   * 
    * @access private
    * @var i18n
    */
@@ -50,8 +66,15 @@ abstract class Controller
   /**
    * Metodo principal abstracto a implementar en los controladores del sistemas
    */
-  abstract function main(Request $request);
+  abstract public function main(Request $request);
 
+  /**
+   * Constructor de la clase Controller.
+   * 
+   * @param Config $config
+   * @param Session $session
+   * @param i18n $i18n
+   */
   public function __construct(Config $config, Session $session, i18n $i18n)
   {
     $this->config  = $config;
@@ -61,6 +84,7 @@ abstract class Controller
   }
 
   /**
+   * Obtiene el objeto configurador del sistema.
    * 
    * @return Config
    */
@@ -69,17 +93,28 @@ abstract class Controller
     return $this->config;
   }
 
+  /**
+   * Obtiene un arreglo con los datos que pasarán a la vista.
+   * 
+   * @return array
+   */
   public function getParams()
   {
     return $this->params;
   }
 
+  /**
+   * Obtiene el nombre de la vista a usar.
+   * 
+   * @return string
+   */
   public function getView()
   {
     return $this->view;
   }
 
   /**
+   * Obtiene el objeto de para el manejo de las sesiones.
    * 
    * @return Session
    */
@@ -89,6 +124,7 @@ abstract class Controller
   }
 
   /**
+   * Objeto para manejar el idioma y los mensajes del sistema.
    * 
    * @return i18n
    */
@@ -98,6 +134,7 @@ abstract class Controller
   }
 
   /**
+   * Establece una variable para ser pasada a la vista.
    * 
    * @param string $param
    * @param mixed $value
@@ -110,6 +147,7 @@ abstract class Controller
   }
 
   /**
+   * Establece la vista a usar por el controlador.
    * 
    * @param string $view
    * @return $this
@@ -121,7 +159,8 @@ abstract class Controller
   }
 
   /**
-   * Setea el código de respuesta HTTP para el navegador
+   * Establece el código de respuesta HTTP para el navegador.
+   * 
    * @param int $code
    * @return $this
    */
@@ -131,13 +170,18 @@ abstract class Controller
     return $this;
   }
 
+  /**
+   * Obtiene el codigo HTTP de respuesta.
+   * 
+   * @return int
+   */
   public function getResponseCode()
   {
     return http_response_code();
   }
 
   /**
-   * Establece cabecera http
+   * Establece cabecera HTTP
    * 
    * @param string $name Nombre del parámetro
    * @param string $value Valor del parámetro
