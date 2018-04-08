@@ -1,7 +1,7 @@
 {
   "name": "sena/zoe.se",
   "description": "Zoe (Student Edition) - This is an implementation of MVC in PHP7 used in the learning environments of the National Learning Service - SENA in Colombia.",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "library",
   "keywords": ["mvc", "sena", "zoe", "zoe", "framework", "php7", "adsi", "cta", "lasso", "jalf", "jalfcolombia"],
   "homepage": "https://jalfcolombia.github.io/zoe.se/",
