@@ -136,4 +136,26 @@ abstract class Controller
     return http_response_code();
   }
 
+  /**
+   * Establece cabecera http
+   * 
+   * @param string $name Nombre del parámetro
+   * @param string $value Valor del parámetro
+   * @return void
+   */
+  public function setHeader(string $name, string $value): void
+  {
+    header("{$name}: {$value}");
+  }
+
+  /**
+   * Obtiene el encabezado a enviar en la petición HTTP
+   *
+   * @return array
+   */
+  public function getHeader(): array
+  {
+    return headers_list();
+  }
+
 }
