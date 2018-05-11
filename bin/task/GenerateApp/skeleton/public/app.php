@@ -9,17 +9,14 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require '../vendor/autoload.php';
-require '../config/MyConfig.php';
-require '../config/ControllerExtends.php';
-require '../config/FrontControllerExtends.php';
 require '../config/Config.php';
 
-use $app\\config\\FrontControllerExtends;
+use $app\\config\\ExtendedFrontController;
 
 try
 {
-  \$app = new FrontControllerExtends(\$config);
-  \$app->Run();
+  \$app = new ExtendedFrontController(\$config);
+  \$app->run();
 }
 catch (\Exception \$exc)
 {

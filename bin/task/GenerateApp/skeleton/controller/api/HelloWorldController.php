@@ -3,17 +3,18 @@
 $skeleton = <<<BLOCK
 <?php
 
-use $app\\ControllerExtends;
+use $app\\Config\\ExtendedController;
 use ZoeSE\\Request;
+use Exception;
 
-class HelloWorld extends ControllerExtends
+class HelloWorld extends ExtendedController
 {
 
-  public function Main(Request \$request)
+  public function main(Request \$request)
   {
-    \$this->SetParam('answer', array('msg' => \$this->i18n()->__('HelloWorld')));
-    \$this->SetResponseCode(200);
-    \$this->SetView('printJSON');
+    \$this->setParam('answer', array('msg' => \$this->i18n()->__('HelloWorld')));
+    \$this->setResponseCode(200);
+    \$this->setView('printJSON');
   }
 
 }

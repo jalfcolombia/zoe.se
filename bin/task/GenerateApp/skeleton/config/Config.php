@@ -3,20 +3,20 @@
 $skeleton = <<<BLOCK
 <?php
 
-use $app\\config\\MyConfig;
+use $app\\Config\\MyConfig;
 
 \$config = new MyConfig();
 
-\$config->SetDrive('DRIVER')
-  ->SetHost('HOST')
-  ->SetPort(PORT)
-  ->SetUser('USER')
-  ->SetPassword('PASSWORD')
-  ->SetDbname('DATABASE');
+\$config->setDrive('DRIVER')
+  ->setHost('HOST')
+  ->setPort(PORT)
+  ->setUser('USER')
+  ->setPassword('PASSWORD')
+  ->setDbname('DATABASE');
 
-\$config->SetHash('HASH')
-  ->SetI18n('en')
-  ->SetPath('$output')
-  ->SetUrl('http://localhost/$app/public/$app.php');
+\$config->setHash('HASH')
+  ->setI18n('en')
+  ->setPath('$output')
+  ->setUrl('http://localhost/$app/public/$app.php');
 
 BLOCK;

@@ -3,12 +3,12 @@
 $skeleton = <<<BLOCK
 <?php
 
-namespace $app\\config;
+namespace $app\\Config;
 
-use $app\\config\\MyConfig;
+use $app\\Config\\MyConfig;
 use ZoeSE\\FrontController;
 
-class FrontControllerExtends extends FrontController
+class ExtendedFrontController extends FrontController
 {
 
   public function __construct(MyConfig \$config)

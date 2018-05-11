@@ -12,6 +12,7 @@ Example:
   
   ./vendor/zoe.se/bin/ZoeSE GenerateApp:MyApp output:/var/www/html/MyApp/
 
+
 HELP;
 
 echo $help;

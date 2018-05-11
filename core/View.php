@@ -15,60 +15,61 @@ use ZoeSE\Config;
 
 /**
  * Clase para manejar la vista del sistema
- * 
+ *
  * @author Julián Andrés Lasso Figueroa <jalasso69@misena.edu.co>
  */
 class View
 {
 
-  /**
-   * Arreglo asociativo de variables que pasarán a la vista
-   * 
-   * @var array
-   */
-  private $params;
+    /**
+     * Arreglo asociativo de variables que pasarán a la vista
+     *
+     * @var array
+     */
+    private $params;
 
-  /**
-   * Nombre de la vista a utilizar
-   * 
-   * @var string
-   */
-  private $view;
+    /**
+     * Nombre de la vista a utilizar
+     *
+     * @var string
+     */
+    private $view;
 
-  /**
-   * Objeto con la configuración del sistema
-   * 
-   * @var Config
-   */
-  private $config;
+    /**
+     * Objeto con la configuración del sistema
+     *
+     * @var Config
+     */
+    private $config;
 
-  /**
-   * Constructor de la clase View
-   * 
-   * @param Config $config Objeto con la configuración del sistema
-   * @param string $view Nombre de la vista
-   * @param array $params Arreglo con los vairables para la vista
-   */
-  public function __construct(Config $config, string $view, array $params = array())
-  {
-    $this->params = $params;
-    $this->view   = $view;
-    $this->config = $config;
-  }
-
-  public function Render()
-  {
-    if (count($this->params) > 0) {
-      extract($this->params);
+    /**
+     * Constructor de la clase View
+     *
+     * @param Config $config
+     *            Objeto con la configuración del sistema
+     * @param string $view
+     *            Nombre de la vista
+     * @param array $params
+     *            Arreglo con los vairables para la vista
+     */
+    public function __construct(Config $config, string $view, array $params = array())
+    {
+        $this->params = $params;
+        $this->view = $view;
+        $this->config = $config;
     }
 
-    if (strpos($this->view, '/') === false) {
-      require $this->config->GetPath() . 'view/template.' . $this->view . '.php';
+    public function render()
+    {
+        if (count($this->params) > 0) {
+            extract($this->params);
+        }
+        
+        if (strpos($this->view, '/') === false) {
+            require $this->config->getPath() . 'view/template.' . $this->view . '.php';
+        } else {
+            $this->view = str_replace('/', DIRECTORY_SEPARATOR . 'template.', $this->view);
+            require $this->config->getPath() . 'view' . DIRECTORY_SEPARATOR . $this->view . '.php';
+        }
     }
-    else {
-      $this->view = str_replace('/', '/template.', $this->view);
-      require $this->config->GetPath() . 'view/' . $this->view . '.php';
-    }
-  }
-
 }

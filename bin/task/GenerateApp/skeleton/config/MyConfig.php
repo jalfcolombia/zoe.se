@@ -3,7 +3,7 @@
 $skeleton = <<<BLOCK
 <?php
 
-namespace $app\\config;
+namespace $app\\Config;
 
 use ZoeSE\\Config;
 
