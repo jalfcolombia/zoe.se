@@ -90,7 +90,7 @@ class Route
      */
     private function getCurrentUri()
     {
-        $this->basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, - 1)) . '/';
+        $this->basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
         $this->uri = substr($_SERVER['REQUEST_URI'], strlen($this->basepath));
         
         if ($this->get_params) {
@@ -106,7 +106,7 @@ class Route
     /**
      * Obtiene las variables que entran por el método GET
      */
-    private function getParams(): void
+    private function getParams()
     {
         if (strstr($this->uri, '?')) {
             $params = explode("?", $this->uri);

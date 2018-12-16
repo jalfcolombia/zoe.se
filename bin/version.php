@@ -1,2 +1,2 @@
 <?php
-define('ZOESE_VERSION', '0.0.4');
+define('ZOESE_VERSION', '0.0.5');

@@ -14,7 +14,7 @@ class HelloWorld extends ExtendedController
   {
     \$this->setParam('answer', array('msg' => \$this->i18n()->__('HelloWorld')));
     \$this->setResponseCode(200);
-    \$this->setView('printJSON');
+    \$this->setView('imprimirJSON');
   }
 
 }

@@ -7,7 +7,7 @@ use $app\\Config\\MyConfig;
 
 \$config = new MyConfig();
 
-\$config->setDrive('DRIVER')
+\$config->setDriver('DRIVER')
   ->setHost('HOST')
   ->setPort(PORT)
   ->setUser('USER')

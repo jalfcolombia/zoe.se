@@ -189,7 +189,7 @@ abstract class Controller
      *            Valor del parámetro
      * @return void
      */
-    public function setHeader(string $name, string $value): void
+    public function setHeader(string $name, string $value)
     {
         header("{$name}: {$value}");
     }

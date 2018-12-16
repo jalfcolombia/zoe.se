@@ -3,6 +3,9 @@ vendor/
 output/
 .idea/
 .settings/
+.vs/
 .project
 .buildpath
 composer.lock
+*.phpproj
+*.phpproj.user
