@@ -227,7 +227,10 @@ class Validate
 
                     // CUSTOM
                     case 10:
-                        if (isset($validations[$x]['files']) and is_array($validations[$x]['files']) and count($validations[$x]['files']) > 0) {
+                        if (isset($validations[$x]['files'])
+                            and is_array($validations[$x]['files'])
+                            and count($validations[$x]['files']) > 0
+                        ) {
                             foreach ($validations[$x]['files'] as $file) {
                                 if (is_file($file) === true) {
                                     require_once $file;
@@ -237,7 +240,10 @@ class Validate
                             }
                         }
                         $class = new $validations[$x]['class']();
-                        if ($class->Validate($validations['value'], (isset($validations[$x]['params'])) ? $validations[$x]['params'] : array()) === false) {
+                        if ($class->Validate(
+                            $validations['value'],
+                            (isset($validations[$x]['params'])) ? $validations[$x]['params'] : array()
+                        ) === false) {
                             $flag = false;
                             $flagCnt ++;
                         }
