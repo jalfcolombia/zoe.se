@@ -3,10 +3,18 @@
 /**
  * This file is part of the ZoeSE package.
  *
- * (c) Julian Lasso <jalasso69@misena.edu.co>
+ * (c) Servicio Nacional de Aprendizaje - SENA
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * PHP version 7
+ *
+ * @category Config
+ * @package  ZoeSE
+ * @author   Julian Lasso <jalasso69@misena.edu.co>
+ * @license  https://github.com/jalfcolombia/zoe.se/blob/master/LICENSE MIT
+ * @link     https://github.com/jalfcolombia/zoe.se
  */
 
 namespace ZoeSE;
@@ -14,7 +22,11 @@ namespace ZoeSE;
 /**
  * Clase para controlar la configuración mínima necesaria
  *
- * @author Julián Andrés Lasso Figueroa <jalasso69@misena.edu.co>
+ * @category Config
+ * @package  ZoeSE
+ * @author   Julian Lasso <jalasso69@misena.edu.co>
+ * @license  https://github.com/jalfcolombia/zoe.se/blob/master/LICENSE MIT
+ * @link     https://github.com/jalfcolombia/zoe.se
  */
 class Config
 {
@@ -28,8 +40,8 @@ class Config
     private $path;
 
     /**
-     * Controlador a usar para la conexión a la base de datos.<br>
-     * Ejemplo pgsql, mysql
+     * Controlador a usar para la conexión a la base de datos.
+     * Ejemplo pgsql, mysql, sqlsvr
      *
      * @var string
      * @access private
@@ -77,8 +89,7 @@ class Config
     private $password;
 
     /**
-     * Método de encriptación.
-     * Ejemplo md5.
+     * Método de encriptación. Ejemplo md5, sha1, sha256
      *
      * @var string
      * @access private
@@ -206,8 +217,9 @@ class Config
     /**
      * Establece la dirección física del proyecto en el servidor web.
      *
-     * @param string $path
-     * @return $this
+     * @param string $path Direccón física del proyecto
+     *
+     * @return $this Instancia de la clase Config
      */
     public function setPath(string $path)
     {
@@ -216,10 +228,11 @@ class Config
     }
 
     /**
-     * Establece la dirección IP de la base de datos.
+     * Establece el nombre del controlador de la base de datos a utlizar.
      *
-     * @param string $driver
-     * @return $this
+     * @param string $driver Nombre del controlador
+     *
+     * @return $this Instancia de la clase Config
      */
     public function setDriver(string $driver)
     {
@@ -228,10 +241,11 @@ class Config
     }
 
     /**
-     * Establece la dirección IP de la base de datos
+     * Establece la dirección IP o nombre del HOST de la base de datos
      *
-     * @param string $host
-     * @return $this
+     * @param string $host Nombre del HOST o dirección IP
+     *
+     * @return $this Instancia de la clase Config
      */
     public function setHost(string $host)
     {
@@ -242,8 +256,9 @@ class Config
     /**
      * Establece el puerto de conexión a la base de datos.
      *
-     * @param int $port
-     * @return $this
+     * @param int $port Número del puerto de conexión
+     *
+     * @return $this Instancia de la clase Config
      */
     public function setPort(int $port)
     {
@@ -254,8 +269,9 @@ class Config
     /**
      * Establece el nombre de la base de datos.
      *
-     * @param string $dbname
-     * @return $this
+     * @param string $dbname Nombre de la base de datos
+     *
+     * @return $this Instancia de la clase Config
      */
     public function setDbName(string $dbname)
     {
@@ -266,8 +282,9 @@ class Config
     /**
      * Establece el usuario de la base de datos.
      *
-     * @param string $user
-     * @return $this
+     * @param string $user Nombre de usuario
+     *
+     * @return $this Instancia de la clase Config
      */
     public function setUser(string $user)
     {
@@ -278,8 +295,9 @@ class Config
     /**
      * Establece la contraseña del usuario de la base de datos.
      *
-     * @param string $password
-     * @return $this
+     * @param string $password Contraseña de usuario de la base de datos
+     *
+     * @return $this Instancia de la clase Config
      */
     public function setPassword(string $password)
     {
@@ -290,8 +308,9 @@ class Config
     /**
      * Establece el método de encriptación a usar en el sistema.
      *
-     * @param string $hash
-     * @return $this
+     * @param string $hash Método de encriptación
+     *
+     * @return $this Instancia de la clase Config
      */
     public function setHash(string $hash)
     {
@@ -302,8 +321,9 @@ class Config
     /**
      * Establece la dirección URL del proyecto.
      *
-     * @param string $url
-     * @return $this
+     * @param string $url URL del proyecto
+     *
+     * @return $this Instancia de la clase Config
      */
     public function setUrl(string $url)
     {
@@ -314,8 +334,9 @@ class Config
     /**
      * Establece el idioma a usar en el sistema.
      *
-     * @param string $i18n
-     * @return $this
+     * @param string $i18n Idioma a usar en el sistema
+     *
+     * @return $this Instancia de la clase Config
      */
     public function setI18n(string $i18n)
     {

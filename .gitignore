@@ -9,3 +9,4 @@ output/
 composer.lock
 *.phpproj
 *.phpproj.user
+*.sln

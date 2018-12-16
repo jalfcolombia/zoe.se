@@ -3,56 +3,51 @@
 /**
  * This file is part of the ZoeSE package.
  *
- * (c) Julian Lasso <jalasso69@misena.edu.co>
+ * (c) Servicio Nacional de Aprendizaje - SENA
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * PHP version 7
+ *
+ * @category Route
+ * @package  ZoeSE
+ * @author   Julian Lasso <jalasso69@misena.edu.co>
+ * @license  https://github.com/jalfcolombia/zoe.se/blob/master/LICENSE MIT
+ * @link     https://github.com/jalfcolombia/zoe.se
  */
 
 namespace ZoeSE;
 
 /**
- * Clase para manejar la ruta de una URL amigable.<br>
- * La clase ha sido modificada ligeramente por Julian Lasso para el
- * acondicionamiento en Zoe (Student Edition)
+ * Clase para manejar la ruta de una URL amigable.
+ * La clase ha sido modificada ligeramente por Julian Lasso para el acondicionamiento en Zoe Student Edition
  *
- * @author Federico Guzman <federico@weblantropia.com>
- * @link http://www.weblantropia.com/2016/07/28/enrutamiento-urls-htaccess-php/ Dirección de origen de la clase
+ * @category Route
+ * @package  ZoeSE
+ * @author   Federico Guzman <federico@weblantropia.com>
+ * @license  https://github.com/jalfcolombia/zoe.se/blob/master/LICENSE MIT
+ * @link     http://www.weblantropia.com/2016/07/28/enrutamiento-urls-htaccess-php/ Dirección origen de la clase
  */
 class Route
 {
 
     /**
-     *
-     * @var array
-     */
-    private $basepath;
-
-    /**
+     * Identificador uniforme de recursos
      *
      * @var string
      */
     private $uri;
 
     /**
-     *
-     * @var string
-     */
-    private $base_url;
-
-    /**
+     * Arreglo con los fragmentos de la ruta base
      *
      * @var array
      */
     private $routes;
 
     /**
-     *
-     * @var array
-     */
-    private $params;
-
-    /**
+     * Indicador de necesidad de solicitud de los parámetros provenientes por el método GET
      *
      * @var bool
      */
@@ -61,10 +56,9 @@ class Route
     /**
      * Constructor de la clase Route
      *
-     * @param bool $get_params
-     *            Indicador de la existencia de variables por el método GET
+     * @param bool $get_params Indicador de la existencia de variables por el método GET
      */
-    function __construct(bool $get_params = false)
+    public function __construct(bool $get_params = false)
     {
         $this->get_params = $get_params;
     }
@@ -72,12 +66,12 @@ class Route
     /**
      * Obtiene el arreglo de rutas y variables entrantes por el método GET
      *
-     * @return array
+     * @return array Arreglo con los datos de la ruta solicitada
      */
     public function getRoutes(): array
     {
-        $this->base_url = $this->getCurrentUri();
-        $this->routes = explode('/', $this->base_url);
+        $base_url = $this->getCurrentUri();
+        $this->routes = explode('/', $base_url);
         
         $this->getParams(); // invocamos el nuevo método
         return $this->routes;
@@ -90,8 +84,8 @@ class Route
      */
     private function getCurrentUri()
     {
-        $this->basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
-        $this->uri = substr($_SERVER['REQUEST_URI'], strlen($this->basepath));
+        $basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
+        $this->uri = substr($_SERVER['REQUEST_URI'], strlen($basepath));
         
         if ($this->get_params) {
             $this->getParams();
@@ -112,8 +106,8 @@ class Route
             $params = explode("?", $this->uri);
             $params = $params[1];
             
-            parse_str($params, $this->params);
-            $this->routes[0] = $this->params;
+            parse_str($params, (array) $params_tmp);
+            $this->routes[0] = $params_tmp;
             array_pop($this->routes);
         }
     }

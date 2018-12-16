@@ -3,10 +3,18 @@
 /**
  * This file is part of the ZoeSE package.
  *
- * (c) Julian Lasso <jalasso69@misena.edu.co>
+ * (c) Servicio Nacional de Aprendizaje - SENA
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * PHP version 7
+ *
+ * @category Request
+ * @package  ZoeSE
+ * @author   Julian Lasso <jalasso69@misena.edu.co>
+ * @license  https://github.com/jalfcolombia/zoe.se/blob/master/LICENSE MIT
+ * @link     https://github.com/jalfcolombia/zoe.se
  */
 
 namespace ZoeSE;
@@ -14,7 +22,11 @@ namespace ZoeSE;
 /**
  * Clase para controlar las peticiones realizadas al sistema.
  *
- * @author Julián Andrés Lasso Figueroa <jalasso69@misena.edu.co>
+ * @category Request
+ * @package  ZoeSE
+ * @author   Julian Lasso <jalasso69@misena.edu.co>
+ * @license  https://github.com/jalfcolombia/zoe.se/blob/master/LICENSE MIT
+ * @link     https://github.com/jalfcolombia/zoe.se
  */
 class Request
 {
@@ -64,18 +76,12 @@ class Request
     /**
      * Constructor de la clase Request
      *
-     * @param array $get
-     *            Arreglo con variables por método GET
-     * @param array $post
-     *            Arreglo con variables por método POST
-     * @param array $put
-     *            Arreglo con variables por método PUT
-     * @param array $delete
-     *            Arreglo con variables por método DELETE
-     * @param array $cookie
-     *            Arreglo con cookies
-     * @param array $files
-     *            Arreglo con archivos en la petción al servidor
+     * @param array $get    Arreglo con variables por método GET
+     * @param array $post   Arreglo con variables por método POST
+     * @param array $put    Arreglo con variables por método PUT
+     * @param array $delete Arreglo con variables por método DELETE
+     * @param array $cookie Arreglo con cookies
+     * @param array $files  Arreglo con archivos en la petción al servidor
      */
     public function __construct(array $get, array $post, array $put, array $delete, array $cookie, array $files)
     {
@@ -90,9 +96,9 @@ class Request
     /**
      * Obtiene el valor de una variable por el método PUT
      *
-     * @param string $variable
-     *            Nombre de la variable
-     * @return string | null Valor de la variable o NULL
+     * @param string $variable Nombre de la variable
+     *
+     * @return string|null Valor de la variable o NULL
      */
     public function getPut(string $variable)
     {
@@ -102,8 +108,8 @@ class Request
     /**
      * Verifica la existencia de una variable por el método PUT
      *
-     * @param string $variable
-     *            Nombre de la variable
+     * @param string $variable Nombre de la variable
+     *
      * @return bool VERDADERO o FALSO si existe o no el valor indicado.
      */
     public function hasPut(string $variable): bool
@@ -114,9 +120,9 @@ class Request
     /**
      * Obtiene el valor de una variable por el método DELETE
      *
-     * @param string $variable
-     *            Nombre de la variable
-     * @return string | null Valor de la variable o NULL
+     * @param string $variable Nombre de la variable
+     *
+     * @return string|null Valor de la variable o NULL
      */
     public function getDelete(string $variable)
     {
@@ -126,8 +132,8 @@ class Request
     /**
      * Verifica la existencia de una variable por el método DELETE
      *
-     * @param string $variable
-     *            Nombre de la variable
+     * @param string $variable Nombre de la variable
+     *
      * @return bool VERDADERO o FALSO si existe o no el valor indicado.
      */
     public function hasDelete(string $variable): bool
@@ -138,9 +144,9 @@ class Request
     /**
      * Obtiene el valor de una variable enviada por el método GET
      *
-     * @param string $variable
-     *            Nombre de la variable
-     * @return string | null Valor de la variable o NULL
+     * @param string $variable Nombre de la variable
+     *
+     * @return string|null Valor de la variable o NULL
      */
     public function getQuery(string $variable)
     {
@@ -150,8 +156,8 @@ class Request
     /**
      * Comprueba la existencia de una variable envíada por el método GET
      *
-     * @param string $variable
-     *            Nombre de la variable
+     * @param string $variable Nombre de la variable
+     *
      * @return bool VERDADERO o FALSO si existe o no el valor indicado.
      */
     public function hasQuery(string $variable): bool
@@ -162,9 +168,9 @@ class Request
     /**
      * Obtiene el valor de una variable eviada por el método POST
      *
-     * @param string $variable
-     *            Nombre de la variable
-     * @return string | null Valor de la variable o NULL
+     * @param string $variable Nombre de la variable
+     *
+     * @return string|null Valor de la variable o NULL
      */
     public function getParam(string $variable)
     {
@@ -174,8 +180,8 @@ class Request
     /**
      * Comprueba la existencia de una variable envíada por el método POST
      *
-     * @param string $variable
-     *            Nombre de la variable
+     * @param string $variable Nombre de la variable
+     *
      * @return bool VERDADERO o FALSO si existe o no el valor indicado.
      */
     public function hasParam(string $variable): bool
@@ -186,8 +192,8 @@ class Request
     /**
      * Obtiene el arreglo de la cookie indicada.
      *
-     * @param string $cookie
-     *            Nombre de la cookie
+     * @param string $cookie Nombre de la cookie
+     *
      * @return array Arreglo con los detalles de la cookie indicada.
      */
     public function getCookie(string $cookie): array
@@ -198,8 +204,8 @@ class Request
     /**
      * Comprueba la existencia de una cookie
      *
-     * @param string $cookie
-     *            Nombre de la cookie
+     * @param string $cookie Nombre de la cookie
+     *
      * @return bool VERDADERO o FALSO si existe o no la cookie indicado.
      */
     public function hasCookie(string $cookie): bool
@@ -210,8 +216,8 @@ class Request
     /**
      * Obtiene un arreglo con la información del archivo subido al servidor
      *
-     * @param string $file
-     *            Nombre de la variable que identifica el archivo en el servidor
+     * @param string $file Nombre de la variable que identifica el archivo en el servidor
+     *
      * @return array Arreglo con los datos del archivo indicado
      */
     public function getFile(string $file): array
@@ -222,8 +228,8 @@ class Request
     /**
      * Comprueba la existencia de un archivo subido al servidor
      *
-     * @param string $file
-     *            Nombre del archivo
+     * @param string $file Nombre del archivo
+     *
      * @return bool VERDADERO o FALSO si existe o no la archivo indicado.
      */
     public function hasFile(string $file): bool

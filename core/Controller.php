@@ -3,10 +3,18 @@
 /**
  * This file is part of the ZoeSE package.
  *
- * (c) Julian Lasso <jalasso69@misena.edu.co>
+ * (c) Servicio Nacional de Aprendizaje - SENA
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * PHP version 7
+ *
+ * @category Controller
+ * @package  ZoeSE
+ * @author   Julian Lasso <jalasso69@misena.edu.co>
+ * @license  https://github.com/jalfcolombia/zoe.se/blob/master/LICENSE MIT
+ * @link     https://github.com/jalfcolombia/zoe.se
  */
 
 namespace ZoeSE;
@@ -18,7 +26,11 @@ use ZoeSE\i18n;
 /**
  * Clase para los controladores del sistema
  *
- * @author Julián Andrés Lasso Figueroa <jalasso69@misena.edu.co>
+ * @category Controller
+ * @package  ZoeSE
+ * @author   Julian Lasso <jalasso69@misena.edu.co>
+ * @license  https://github.com/jalfcolombia/zoe.se/blob/master/LICENSE MIT
+ * @link     https://github.com/jalfcolombia/zoe.se
  */
 abstract class Controller
 {
@@ -65,15 +77,17 @@ abstract class Controller
 
     /**
      * Metodo principal abstracto a implementar en los controladores del sistemas
+     *
+     * @param Request $request
      */
     abstract public function main(Request $request);
 
     /**
      * Constructor de la clase Controller.
      *
-     * @param Config $config
-     * @param Session $session
-     * @param i18n $i18n
+     * @param Config  $config  Instancia del objeto Config
+     * @param Session $session Instancia del objeto Session
+     * @param i18n    $i18n    Instancia del objeto i18n
      */
     public function __construct(Config $config, Session $session, i18n $i18n)
     {
@@ -86,7 +100,7 @@ abstract class Controller
     /**
      * Obtiene el objeto configurador del sistema.
      *
-     * @return Config
+     * @return Config Instancia de la clase Config
      */
     public function getConfig()
     {
@@ -96,7 +110,7 @@ abstract class Controller
     /**
      * Obtiene un arreglo con los datos que pasarán a la vista.
      *
-     * @return array
+     * @return array Arreglo de datos
      */
     public function getParams()
     {
@@ -106,7 +120,7 @@ abstract class Controller
     /**
      * Obtiene el nombre de la vista a usar.
      *
-     * @return string
+     * @return string Nombre de la vista
      */
     public function getView()
     {
@@ -116,7 +130,7 @@ abstract class Controller
     /**
      * Obtiene el objeto de para el manejo de las sesiones.
      *
-     * @return Session
+     * @return Session Instancia de la clase Session
      */
     public function getSession()
     {
@@ -126,7 +140,7 @@ abstract class Controller
     /**
      * Objeto para manejar el idioma y los mensajes del sistema.
      *
-     * @return i18n
+     * @return i18n Instancia de la clase i18n
      */
     public function i18n()
     {
@@ -136,9 +150,10 @@ abstract class Controller
     /**
      * Establece una variable para ser pasada a la vista.
      *
-     * @param string $param
-     * @param mixed $value
-     * @return $this
+     * @param string $param Nombre de la variable
+     * @param mixed  $value Valor de la variable
+     *
+     * @return $this Instancia de la clase Controller
      */
     public function setParam(string $param, $value)
     {
@@ -149,8 +164,9 @@ abstract class Controller
     /**
      * Establece la vista a usar por el controlador.
      *
-     * @param string $view
-     * @return $this
+     * @param string $view Nombre de la vista a usar
+     *
+     * @return $this Instancia de la clase Controller
      */
     public function setView(string $view)
     {
@@ -161,8 +177,9 @@ abstract class Controller
     /**
      * Establece el código de respuesta HTTP para el navegador.
      *
-     * @param int $code
-     * @return $this
+     * @param int $code Código HTTP de respuesta
+     *
+     * @return $this Instancia de la clase Controller
      */
     public function setResponseCode(int $code)
     {
@@ -173,7 +190,7 @@ abstract class Controller
     /**
      * Obtiene el codigo HTTP de respuesta.
      *
-     * @return int
+     * @return int Código HTTP
      */
     public function getResponseCode()
     {
@@ -183,11 +200,8 @@ abstract class Controller
     /**
      * Establece cabecera HTTP
      *
-     * @param string $name
-     *            Nombre del parámetro
-     * @param string $value
-     *            Valor del parámetro
-     * @return void
+     * @param string $name  Nombre del parámetro
+     * @param string $value Valor del parámetro
      */
     public function setHeader(string $name, string $value)
     {
@@ -197,7 +211,7 @@ abstract class Controller
     /**
      * Obtiene el encabezado a enviar en la petición HTTP
      *
-     * @return array
+     * @return array Arreglo con las cabeceras HTTP a enviar
      */
     public function getHeader(): array
     {

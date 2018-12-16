@@ -3,10 +3,18 @@
 /**
  * This file is part of the ZoeSE package.
  *
- * (c) Julian Lasso <jalasso69@misena.edu.co>
+ * (c) Servicio Nacional de Aprendizaje - SENA
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * PHP version 7
+ *
+ * @category Validation
+ * @package  ZoeSE
+ * @author   Julian Lasso <jalasso69@misena.edu.co>
+ * @license  https://github.com/jalfcolombia/zoe.se/blob/master/LICENSE MIT
+ * @link     https://github.com/jalfcolombia/zoe.se
  */
 
 namespace ZoeSE;
@@ -14,7 +22,11 @@ namespace ZoeSE;
 /**
  * Clase para realizar validaciones en formularios o similares
  *
- * @author Julián Andrés Lasso Figueroa <jalasso69@misena.edu.co>
+ * @category Validation
+ * @package  ZoeSE
+ * @author   Julian Lasso <jalasso69@misena.edu.co>
+ * @license  https://github.com/jalfcolombia/zoe.se/blob/master/LICENSE MIT
+ * @link     https://github.com/jalfcolombia/zoe.se
  */
 class Validate
 {
@@ -75,9 +87,9 @@ class Validate
     const CUSTOM = 10;
 
     /**
-     * Variable contenedora de la configuración para realizar las validaciones
+     * Arreglo con la configuración para realizar las validaciones
      *
-     * @var string
+     * @var array
      */
     private $form;
 
@@ -88,7 +100,12 @@ class Validate
      */
     private $error = array();
 
-    public function __construct($form)
+    /**
+     * Clase para realizar validaciones en formularios o similares
+     *
+     * @param array $form Arreglo con la configuración para realizar las validaciones
+     */
+    public function __construct(array $form)
     {
         $this->form = $form;
     }
@@ -96,7 +113,7 @@ class Validate
     /**
      * Obtiene el arreglo de errores
      *
-     * @return array
+     * @return array arreglo de errores
      */
     public function getErrors()
     {
@@ -106,8 +123,8 @@ class Validate
     /**
      * Establece un error a un input determinado
      *
-     * @param string $input
-     * @param string $message
+     * @param string $input   Nombre del input
+     * @param string $message Mensaje de error
      */
     public function setError(string $input, string $message)
     {
@@ -115,10 +132,10 @@ class Validate
     }
 
     /**
-     * Método principal para realizar la validación, el cual devolverá<br>
-     * VERDADERO si la validación pasó totalmente o de lo contrario, devolverá FALSO
+     * Método principal para realizar la validación, el cual devolverá VERDADERO si la validación pasó totalmente
+     * o de lo contrario, devolverá FALSO
      *
-     * @return bool
+     * @return bool FALSO o VERDADERO si la validación no pasó o si pasó
      */
     public function isValid(): bool
     {
@@ -128,7 +145,6 @@ class Validate
             for ($x = 0; $x < $cnt; $x ++) {
                 $flag = true;
                 switch ($validations[$x]['type']) {
-                    
                     // IS_NUMBER
                     case 0:
                         if (is_numeric($validations['value']) === false) {
@@ -136,7 +152,7 @@ class Validate
                             $flagCnt ++;
                         }
                         break;
-                    
+
                     // IS_EQUAL
                     case 1:
                         if (! ($validations['value'] == $validations[$x]['otherValue'])) {
@@ -144,7 +160,7 @@ class Validate
                             $flagCnt ++;
                         }
                         break;
-                    
+
                     // IS_NOT_EQUAL
                     case 2:
                         if ($validations['value'] == $validations[$x]['otherValue']) {
@@ -152,7 +168,7 @@ class Validate
                             $flagCnt ++;
                         }
                         break;
-                    
+
                     // PATTERN
                     case 3:
                         if (! preg_match($validations[$x]['pattern'], $validations['value'])) {
@@ -160,7 +176,7 @@ class Validate
                             $flagCnt ++;
                         }
                         break;
-                    
+
                     // IS_EMAIL
                     case 4:
                         if (filter_var($validations['value'], FILTER_VALIDATE_EMAIL) === false) {
@@ -168,7 +184,7 @@ class Validate
                             $flagCnt ++;
                         }
                         break;
-                    
+
                     // IS_NULL
                     case 5:
                         if (strlen($validations['value']) > 0) {
@@ -176,7 +192,7 @@ class Validate
                             $flagCnt ++;
                         }
                         break;
-                    
+
                     // IS_NOT_NULL
                     case 6:
                         if (is_null($validations['value']) === true or $validations['value'] === '') {
@@ -184,7 +200,7 @@ class Validate
                             $flagCnt ++;
                         }
                         break;
-                    
+
                     // EXISTS_IN_DATABASE
                     case 7:
                         if ($validations[$x]['answer'] === true) {
@@ -192,7 +208,7 @@ class Validate
                             $flagCnt ++;
                         }
                         break;
-                    
+
                     // BOOLEAN_TRUE
                     case 8:
                         if ($validations[$x]['answer'] === true) {
@@ -200,7 +216,7 @@ class Validate
                             $flagCnt ++;
                         }
                         break;
-                    
+
                     // BOOLEAN_FALSE
                     case 9:
                         if ($validations[$x]['answer'] === false) {
@@ -208,7 +224,7 @@ class Validate
                             $flagCnt ++;
                         }
                         break;
-                    
+
                     // CUSTOM
                     case 10:
                         if (isset($validations[$x]['files']) and is_array($validations[$x]['files']) and count($validations[$x]['files']) > 0) {

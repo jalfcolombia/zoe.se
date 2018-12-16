@@ -3,10 +3,18 @@
 /**
  * This file is part of the ZoeSE package.
  *
- * (c) Julian Lasso <jalasso69@misena.edu.co>
+ * (c) Servicio Nacional de Aprendizaje - SENA
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * PHP version 7
+ *
+ * @category Controller
+ * @package  ZoeSE
+ * @author   Julian Lasso <jalasso69@misena.edu.co>
+ * @license  https://github.com/jalfcolombia/zoe.se/blob/master/LICENSE MIT
+ * @link     https://github.com/jalfcolombia/zoe.se
  */
 
 namespace ZoeSE;
@@ -20,7 +28,11 @@ use ZoeSE\Config;
 /**
  * Controlador frontal
  *
- * @author Julián Andrés Lasso Figueroa <jalasso69@misena.edu.co>
+ * @category Controller
+ * @package  ZoeSE
+ * @author   Julian Lasso <jalasso69@misena.edu.co>
+ * @license  https://github.com/jalfcolombia/zoe.se/blob/master/LICENSE MIT
+ * @link     https://github.com/jalfcolombia/zoe.se
  */
 class FrontController
 {
@@ -116,11 +128,13 @@ class FrontController
         $routes = $route->getRoutes();
         if (isset($routes[2]) === false) {
             $this->controller = 'Index';
-        } elseif (isset($routes[2]) === true and isset($routes[3]) === true and is_dir($this->getConfig()->getPath() . 'controller/' . $routes[2]) === true) {
+        } elseif (isset($routes[2]) === true and isset($routes[3]) === true
+            and is_dir($this->getConfig()->getPath() . 'controller/' . $routes[2]) === true
+        ) {
             $this->folder = $routes[2];
             $this->controller = str_replace(' ', '', ucwords(str_replace('_', ' ', $routes[3])));
             unset($routes[3]);
-        } else if (isset($routes[2]) === true) {
+        } elseif (isset($routes[2]) === true) {
             $this->controller = str_replace(' ', '', ucwords(str_replace('_', ' ', $routes[2])));
         }
         unset($routes[0], $routes[1], $routes[2]);
@@ -135,9 +149,11 @@ class FrontController
     private function loadController()
     {
         if ($this->folder !== null) {
-            require $this->getConfig()->getPath() . 'controller' . DIRECTORY_SEPARATOR . $this->folder . DIRECTORY_SEPARATOR . $this->controller . 'Controller.php';
+            require $this->getConfig()->getPath() . 'controller' . DIRECTORY_SEPARATOR . $this->folder
+                    . DIRECTORY_SEPARATOR . $this->controller . 'Controller.php';
         } else {
-            require $this->getConfig()->getPath() . 'controller' . DIRECTORY_SEPARATOR . $this->controller . 'Controller.php';
+            require $this->getConfig()->getPath() . 'controller' . DIRECTORY_SEPARATOR . $this->controller
+                    . 'Controller.php';
         }
     }
 
@@ -156,7 +172,7 @@ class FrontController
         $delete = array();
         if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') === 'PUT') {
             parse_str(file_get_contents("php://input"), $put);
-        } else if (filter_input(INPUT_SERVER, 'REQUEST_METHOD') == 'DELETE') {
+        } elseif (filter_input(INPUT_SERVER, 'REQUEST_METHOD') == 'DELETE') {
             parse_str(file_get_contents("php://input"), $delete);
         }
         return new Request($get, $post, $put, $delete, $cookie, $_FILES);

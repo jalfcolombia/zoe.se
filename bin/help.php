@@ -2,14 +2,15 @@
 
 $help = <<<HELP
 
-The Zoe (Student Edition) project implements the MVC development pattern in PHP7 for SENA apprentices in a basic way and also for anyone else who wants to make use of this library under MIT license.
-  
-The way to use the ZoeSE command is as follows:
-  
-  ./vendor/zoe.se/bin/ZoeSE GenerateApp:[NAME YOUR APP] output:[DIRECTORY PATH TARGET]
-  
-Example:
-  
+El proyecto Zoe Student Edition implementa el patrón de arquitectura de software MVC en PHP7 para aprendices del SENA
+de forma básica y también para cualquier persona que quiera hacer uso de esta librería bajo licencia MIT.
+
+La forma de usar el comando ZoeSE es la siguiente:
+
+  ./vendor/zoe.se/bin/ZoeSE GenerateApp:[NOMBRE DE LA APP] output:[RUTA COMPLETA DEL DIRECTORIO DEL PROYECTO]
+
+Ejemplo:
+
   ./vendor/zoe.se/bin/ZoeSE GenerateApp:MyApp output:/var/www/html/MyApp/
 
 
