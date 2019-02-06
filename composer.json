@@ -1,6 +1,6 @@
 {
   "name": "sena/zoe.se",
-  "description": "Zoe Student Edition - Esta es una implementación del patrón de arquitectura de software MVC en PHP7 utilizada en los ambientes de aprendizaje del Servicio Nacional de Aprendizaje - SENA en Colombia.",
+  "description": "Zoe Student Edition - Esta es una implementaciï¿½n del patrï¿½n de arquitectura de software MVC en PHP7 utilizada en los ambientes de aprendizaje del Servicio Nacional de Aprendizaje - SENA en Colombia.",
   "version": "0.0.5",
   "type": "library",
   "keywords": [
@@ -18,13 +18,11 @@
   ],
   "homepage": "https://jalfcolombia.github.io/zoe.se/",
   "license": "MIT",
-  "authors": [
-    {
-      "name": "Julian Andres Lasso Figueroa",
-      "email": "jalasso69@misena.edu.co",
-      "role": "Developer"
-    }
-  ],
+  "authors": [{
+    "name": "Julian Andres Lasso Figueroa",
+    "email": "jalasso69@misena.edu.co",
+    "role": "Developer"
+  }],
   "support": {
     "email": "jalasso69@misena.edu.co",
     "issues": "https://github.com/jalfcolombia/zoe.se/issues",

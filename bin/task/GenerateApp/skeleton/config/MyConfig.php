@@ -9,7 +9,7 @@ use ZoeSE\\Config;
 
 class MyConfig extends Config
 {
-  
+
 }
 
 BLOCK;
